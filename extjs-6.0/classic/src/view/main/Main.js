@@ -47,6 +47,7 @@ Ext.define('Meals.view.main.Main', {
         }
     },
 
+    headerPosition: 'top', /*
     responsiveConfig: {
         tall: {
             headerPosition: 'top'
@@ -54,7 +55,7 @@ Ext.define('Meals.view.main.Main', {
         wide: {
             headerPosition: 'left'
         }
-    },
+    },*/
 
     defaults: {
         bodyPadding: 20,
