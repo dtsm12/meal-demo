@@ -1,0 +1,59 @@
+/* app css stylesheet */
+
+
+.panel-header, .panel-header a, .modal-header, .close, .btn{
+    background-color: rgb(95, 162, 221);
+    color: white !important;
+    font-size: 16px;
+}
+
+.btn-default:hover {
+  background-color: rgb(87, 149, 203);
+}
+
+.modal-header{
+    text-align: center;
+}
+
+.navbar-header{
+    background-color: rgb(95, 162, 221);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    line-height: 24px;
+    padding-left: 15px;
+}
+.navbar-nav{
+    font-size: 20px;
+    font-weight: 300;
+    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
+    line-height: 24px;
+}
+.nav-home, .navbar-header a{
+    color: white !important;
+}
+
+.menu-actions, .modal-body .btn {
+    float: right;
+    font-size: 16px;
+}
+
+.clearfix {
+    display: inline-block;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+table .menu-actions a{
+    color: #333;
+}
+
+.alert {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+}
+
+#meal-name {
+    width: 50%;
+}

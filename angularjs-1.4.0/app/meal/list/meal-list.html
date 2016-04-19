@@ -1,0 +1,48 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="alert alert-success" ng-show="successMessage" data-dismiss="alert">
+            <strong>Hooray!</strong> {{successMessage}}
+        </div>
+        <div class="alert alert-danger" ng-show="errorMessage" data-dismiss="alert">
+            <strong>Error!</strong> {{errorMessage}}
+        </div>
+        <div class="panel-body panel-header">
+            <span>Meals</span>
+            <span class="menu-actions">
+                <a href="JavaScript:void(0)" ng-click="toggleModal()" class="glyphicon glyphicon-plus"/>
+                <a href="JavaScript:void(0)" ng-click="getMeals()" class="glyphicon glyphicon-refresh"/>
+            </span>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="meal in meals">
+                <td width="55px">{{meal.id}}</td>
+                <td>{{meal.name}}</td>
+                <td width="55px">
+                    <span class="menu-actions">
+                        <a href="JavaScript:void(0)" ng-click="editMeal(meal)" class="glyphicon glyphicon-pencil"/>
+                        <a href="JavaScript:void(0)" ng-click="deleteMeal(meal)" class="glyphicon glyphicon-remove"/>
+                    </span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<modal title="New Meal" visible="showModal">
+    <form role="form">
+        <div class="form-group">
+            Meal Name:
+            <input type="input" id="meal-name" ng-model="meal.name"/>
+        </div>
+        <div class="clearfix"/><button type="submit" class="btn btn-default" ng-click="saveMeal()">Save</button>
+    </form>
+</modal>
