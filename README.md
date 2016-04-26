@@ -21,4 +21,4 @@ The rest of the menu expands to the bottom/right. Background color: rgb(64, 64, 
 The main content. Background color: rgb(255, 255, 255)
 
 # extjs-6.0
-Modern application doesn't load css due to Sencha Cmd bug: https://www.sencha.com/forum/showthread.php?309970
+Modern application doesn't load css due to Sencha Cmd bug: https://www.sencha.com/forum/showthread.php?309970 - Fixed by upgrade to Sencha Cmd v6.1.2.15
