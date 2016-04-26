@@ -20,10 +20,13 @@ The rest of the menu expands to the bottom/right. Background color: rgb(64, 64, 
 
 The main content. Background color: rgb(255, 255, 255)
 
-# extjs-6.0 - [extjs-60.cfapps.io]
+# extjs-6.0
+*[http://extjs-60.cfapps.io]*
 Modern application doesn't load css due to Sencha Cmd bug: https://www.sencha.com/forum/showthread.php?309970 - Fixed by upgrade to Sencha Cmd v6.1.2.15
 
 
-# angularjs-1.4.0 - [http://angularjs-140.cfapps.io]
+# angularjs-1.4.0
+*[http://angularjs-140.cfapps.io]*
 
-# spring-boot-rest-jpa - [http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io]
+# spring-boot-rest-jpa
+*[http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io]*
