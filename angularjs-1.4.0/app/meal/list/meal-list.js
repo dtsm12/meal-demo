@@ -50,7 +50,7 @@ angular.module('myApp.meal.list', ['ngRoute'])
     $scope.saveMeal = function()
     {
         var meal = $scope.getCurrentMeal();
-        
+
         // update view
         if(meal.id < 0) {
             $scope.meals.push(meal);
@@ -106,8 +106,11 @@ angular.module('myApp.meal.list', ['ngRoute'])
 
 .factory('MealsSvc', function($http){
     return {
+
+        mealHost: 'http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io/meals',
+
         getMeals : function(){
-            return $http.get('http://localhost:8080/meals').then(function(response){
+            return $http.get(this.mealHost).then(function(response){
                 return {success: false, message: null, data: response.data._embedded.meals};
             },function(response){
                 return {success: false, message: response.statusText};
@@ -117,7 +120,7 @@ angular.module('myApp.meal.list', ['ngRoute'])
 
             if(meal.id < 0)
             {
-                return $http.post('http://localhost:8080/meals', meal).then(function(response){
+                return $http.post(this.mealHost, meal).then(function(response){
                     return {success: true, message: response.statusText, data: response.data};
                 },function(response){
                     return {success: false, message: response.statusText};
@@ -125,7 +128,7 @@ angular.module('myApp.meal.list', ['ngRoute'])
             }
             else
             {
-                return $http.put('http://localhost:8080/meals/'+meal.id, meal).then(function(response){
+                return $http.put(this.mealHost+meal.id, meal).then(function(response){
                     return {success: true, message: response.statusText, data: response.data};
                 },function(response){
                     return {success: false, message: response.statusText};
@@ -133,7 +136,7 @@ angular.module('myApp.meal.list', ['ngRoute'])
             }
         },
         deleteMeal : function(meal){
-            return $http.delete('http://localhost:8080/meals/'+meal.id).then(function(response){
+            return $http.delete(this.mealHost+meal.id).then(function(response){
                 return {success: true, message: response.statusText};
             },function(response){
                 return {success: false, message: response.statusText};

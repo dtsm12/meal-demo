@@ -11,41 +11,36 @@ Ext.define('Meals.view.meal.List', {
         'Meals.store.Meals'
     ],
 
-    title: 'Meals',
-
     store: {
         type: 'meal'
     },
 
+    items:{
+            xtype : 'toolbar',
+            docked: 'top',
+            title: 'Meals',
+
+            layout: {
+                type: 'hbox',
+                pack: 'end'
+            },
+
+            items: [
+                {
+                    iconCls: 'x-fa fa-plus',
+                    handler: 'addMeal',
+                    ui: 'plain'
+                },
+                {
+                    iconCls: 'x-fa fa-refresh',
+                    handler: 'refreshMeals',
+                    ui: 'plain'
+                }
+            ]
+        },
+
     columns: [
         { text: 'ID',  dataIndex: 'id', width: 50 },
-        { text: 'Name',  dataIndex: 'name', flex: 1 },
-        {
-            xtype:'actioncolumn',
-            width:50,
-            layout: {
-                type: 'vbox',
-                align: 'left'
-            },
-            items: [{
-                iconCls: 'x-fa fa-edit',
-                tooltip: 'Edit Meal',
-                handler: 'editMeal'
-            },{
-                iconCls: 'x-fa fa-remove',
-                tooltip: 'Delete Meal',
-                handler: 'deleteMeal'
-            }]
-        }
-    ],
-
-    tools:[{
-        type:'plus',
-        tooltip: 'Add Meal',
-        handler: 'addMeal'
-    },{
-        type:'refresh',
-        tooltip: 'Refresh',
-        handler: 'refreshMeals'
-    }]
+        { text: 'Name',  dataIndex: 'name', flex: 1 }
+    ]
 });

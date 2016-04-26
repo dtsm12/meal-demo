@@ -1,6 +1,6 @@
 Ext.define('Meals.model.Meal', {
-    extend: 'Ext.data.Model',
-
+   extend: 'Ext.data.Model',
+   requires: ['Ext.data.identifier.Negative'],
    fields: [
        {name: 'id',  type: 'int'},
        {name: 'name',  type: 'string'}
@@ -10,7 +10,7 @@ Ext.define('Meals.model.Meal', {
 
    proxy: {
        type: 'rest',
-       url: 'http://localhost:8080/meals',
+       url: 'http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io/meals',
        reader: {
            type: 'json'
        }

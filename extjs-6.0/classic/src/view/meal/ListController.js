@@ -3,7 +3,8 @@
  * the "controller" of the Main view class.
  */
 Ext.define('Meals.view.meal.ListController', {
-    extend: 'Ext.app.ViewController',
+    extend: 'Meals.view.meal.ListControllerShared',
+    requires: ['Ext.window.Window','Ext.layout.container.Border', 'Ext.app.ViewModel'],
     alias: 'controller.meallist',
 
     mealsUpdated: function(meal, operation) {
@@ -18,35 +19,6 @@ Ext.define('Meals.view.meal.ListController', {
             this.getView().getStore().add(meal);
         }
     },
-
-    refreshMeals: function() {
-      this.getView().getStore().loadPage(0);
-    },
-
-    editMeal: function(grid, rowIndex, colIndex) {
-        var meal = grid.getStore().getAt(rowIndex);
-        this.openMealEditor(meal);
-    },
-
-    deleteMeal: function(grid, rowIndex, colIndex) {
-        var meal = grid.getStore().getAt(rowIndex);
-        var ctrlr = this;
-        meal.erase({
-           success: function(meal, operation) {
-              ctrlr.mealsUpdated();
-              Ext.toast('Meal deleted successfully');
-           },
-           failure: function(meal, operation) {
-              ctrlr.mealsUpdated();
-              Ext.toast('Meal delete failed');
-           }
-        });
-    },
-
-     addMeal: function () {
-        var meal = new Meals.model.Meal();
-        this.openMealEditor(meal);
-     },
 
     openMealEditor: function (meal) {
 

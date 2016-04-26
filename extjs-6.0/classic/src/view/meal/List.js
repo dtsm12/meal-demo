@@ -3,13 +3,9 @@
  */
 Ext.define('Meals.view.meal.List', {
     extend: 'Ext.grid.Panel',
-    requires: ['Meals.view.meal.ListController'],
+    requires: ['Meals.view.meal.ListController', 'Meals.store.Meals','Ext.grid.column.Action', 'Ext.layout.container.VBox'],
     xtype: 'meallist',
     controller: 'meallist',
-
-    requires: [
-        'Meals.store.Meals'
-    ],
 
     title: 'Meals',
 
