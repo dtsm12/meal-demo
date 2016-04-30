@@ -4,6 +4,7 @@
  */
 Ext.define('Meals.view.meal.FormController', {
     extend: 'Ext.app.ViewController',
+    mixins: {toaster:'Meals.view.Toast'},
     alias: 'controller.mealform',
 
     saveMeal: function() {
@@ -13,11 +14,11 @@ Ext.define('Meals.view.meal.FormController', {
       this.getViewModel().data.meal.save({
               success: function(meal, operation) {
                  ctrlr.getView().fireEvent("mealsUpdated", meal, operation);
-                 Ext.toast('Meal saved successfully');
+                 ctrlr.mixins.toaster.toast('Meal saved successfully');
               },
               failure: function(meal, operation) {
                  ctrlr.getView().fireEvent("mealsUpdated", meal, operation);
-                 Ext.toast('Meal save failed');
+                 ctrlr.mixins.toaster.toast('Meal save failed');
               }
           });
     }

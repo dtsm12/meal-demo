@@ -4,6 +4,7 @@
  */
 Ext.define('Meals.view.meal.ListControllerShared', {
     extend: 'Ext.app.ViewController',
+    mixins: {toaster:'Meals.view.Toast'},
 
     openMealEditor: function (meal) {
         // to be overriden by view specific controller
@@ -28,11 +29,11 @@ Ext.define('Meals.view.meal.ListControllerShared', {
         meal.erase({
            success: function(meal, operation) {
               ctrlr.mealsUpdated();
-              Ext.toast('Meal deleted successfully');
+              ctrlr.mixins.toaster.toast('Meal deleted successfully');
            },
            failure: function(meal, operation) {
               ctrlr.mealsUpdated();
-              Ext.toast('Meal delete failed');
+              ctrlr.mixins.toaster.toast('Meal delete failed');
            }
         });
     },

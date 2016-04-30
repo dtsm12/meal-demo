@@ -10,6 +10,7 @@ Ext.define('Meals.view.main.Main', {
     requires: [
         'Ext.plugin.Viewport',
         'Ext.window.MessageBox',
+        'Ext.window.Toast',
 
         'Meals.view.main.MainController',
         'Meals.view.main.MainModel',
