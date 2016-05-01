@@ -6,7 +6,11 @@
     color: white !important;
     font-size: 16px;
 }
-
+.panel-default {
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-color: #ddd;
+}
 .btn-default:hover {
   background-color: rgb(87, 149, 203);
 }
@@ -15,18 +19,48 @@
     text-align: center;
 }
 
+.navbar{
+    border-radius:0px;
+    border:0px;
+}
+nav>.container-fluid{
+    padding-right: 0px;
+    padding-left: 0px;
+}
+.navbar-inverse {
+    background-color: #404040;
+}
+.navbar-inverse .navbar-nav>.active>a{
+    background-color: #303030;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.navbar-nav>li>a{
+    padding-bottom:14px;
+    line-height: 50px;
+}
+.navbar-header, .navbar-nav>li>a{
+    padding-top: 25px;
+    padding-bottom: 25px;
+    top: 0px;
+}
 .navbar-header{
     background-color: rgb(95, 162, 221);
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
     line-height: 24px;
-    padding-left: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.navbar-brand-name, .navbar-nav-name{
+    font-family: 'Arial Black', Gadget, sans-serif;
+}
+.navbar-brand-name{
+    font-size: 20px;
+}
+.navbar-nav-name{
+    font-size: 15px;
 }
 .navbar-nav{
     font-size: 20px;
-    font-weight: 300;
-    font-family: 'Open Sans', 'Helvetica Neue', helvetica, arial, verdana, sans-serif;
     line-height: 24px;
 }
 .nav-home, .navbar-header a{
