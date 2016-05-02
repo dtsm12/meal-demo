@@ -13,6 +13,10 @@ Ext.define('Meals.view.meal.ListControllerShared', {
         // to be overriden by view specific controller
     },
 
+    init: function(view) {
+      this.refreshMeals();
+    },
+
     refreshMeals: function() {
       this.getView().getStore().loadPage(0);
     },

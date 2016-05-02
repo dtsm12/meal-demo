@@ -6,8 +6,6 @@ Ext.define('Meals.store.Meals', {
 
     model: 'Meals.model.Meal',
 
-    autoLoad : true,
-
     proxy: {
         type: 'ajax',
         url: 'http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io/meals',
