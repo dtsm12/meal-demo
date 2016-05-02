@@ -107,7 +107,7 @@ angular.module('myApp.meal.list', ['ngRoute'])
 .factory('MealsSvc', function($http){
     return {
 
-        mealHost: 'http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io/meals',
+        mealHost: 'http://spring-boot-rest-jpa-hyperbarbarous-literalist.cfapps.io/meals/',
 
         getMeals : function(){
             return $http.get(this.mealHost).then(function(response){
