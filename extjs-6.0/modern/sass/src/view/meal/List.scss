@@ -1,0 +1,14 @@
+.delete-cell {
+    background-color: #ff6961;
+    color: white;
+}
+
+.delete-cell-hidden {
+  @extend .delete-cell;
+  display: none;
+}
+
+.delete-cell-visible {
+  @extend .delete-cell;
+  display: block;
+}

@@ -4,8 +4,8 @@
 Ext.define('Meals.view.meal.List', {
     extend: 'Ext.grid.Panel',
     requires: ['Meals.view.meal.ListController', 'Meals.store.Meals','Ext.grid.column.Action', 'Ext.layout.container.VBox'],
-    xtype: 'meallist',
-    controller: 'meallist',
+    xtype: 'meal-list',
+    controller: 'meal-list',
 
     title: 'Meals',
 
@@ -18,7 +18,7 @@ Ext.define('Meals.view.meal.List', {
         { text: 'Name',  dataIndex: 'name', flex: 1 },
         {
             xtype:'actioncolumn',
-            width:50,
+            width:25,
             layout: {
                 type: 'vbox',
                 align: 'left'
@@ -26,11 +26,7 @@ Ext.define('Meals.view.meal.List', {
             items: [{
                 iconCls: 'x-fa fa-edit',
                 tooltip: 'Edit Meal',
-                handler: 'editMeal'
-            },{
-                iconCls: 'x-fa fa-remove',
-                tooltip: 'Delete Meal',
-                handler: 'deleteMeal'
+                handler: 'editMealButton'
             }]
         }
     ],
@@ -43,5 +39,9 @@ Ext.define('Meals.view.meal.List', {
         type:'refresh',
         tooltip: 'Refresh',
         handler: 'refreshMeals'
-    }]
+    }],
+
+    listeners: {
+        itemdblclick: 'editMealDblClick'
+    }
 });

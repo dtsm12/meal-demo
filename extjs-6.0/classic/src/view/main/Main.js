@@ -80,7 +80,7 @@ Ext.define('Meals.view.main.Main', {
         title: 'Meals',
         iconCls: 'fa-home',
         items: [{
-            xtype: 'meallist'
+            xtype: 'meal-list'
         }]
     }]
 });

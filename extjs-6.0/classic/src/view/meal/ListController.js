@@ -5,7 +5,16 @@
 Ext.define('Meals.view.meal.ListController', {
     extend: 'Meals.view.meal.ListControllerShared',
     requires: ['Ext.window.Window','Ext.layout.container.Border', 'Ext.app.ViewModel'],
-    alias: 'controller.meallist',
+    alias: 'controller.meal-list',
+
+    editMealButton: function(grid, rowIndex, colIndex) {
+        var meal = grid.getStore().getAt(rowIndex);
+        this.openMealEditor(meal);
+    },
+
+    editMealDblClick: function(grid, meal, item, index, e, eOpts ) {
+        this.openMealEditor(meal);
+    },
 
     mealsUpdated: function(meal, operation) {
 
@@ -18,6 +27,13 @@ Ext.define('Meals.view.meal.ListController', {
         {
             this.getView().getStore().add(meal);
         }
+    },
+
+    mealsUpdateCancelled: function() {
+       if(this.mealDialogWindow)
+       {
+           this.mealDialogWindow.hide();
+       }
     },
 
     openMealEditor: function (meal) {
@@ -42,11 +58,14 @@ Ext.define('Meals.view.meal.ListController', {
                                                 },
                                                 items: [{
                                                    region: 'center',
-                                                   xtype: 'mealform',
-                                                   viewModel: new Ext.app.ViewModel(),
+                                                   xtype: 'meal-form',
                                                    listeners: {
                                                         mealsUpdated: {
                                                             fn: this.mealsUpdated,
+                                                            scope: this
+                                                        },
+                                                        mealsUpdateCancelled: {
+                                                            fn: this.mealsUpdateCancelled,
                                                             scope: this
                                                         }
                                                    }
@@ -54,7 +73,7 @@ Ext.define('Meals.view.meal.ListController', {
                                               });
         }
 
-        var form = this.mealDialogWindow.down('mealform');
+        var form = this.mealDialogWindow.down('meal-form');
         form.getViewModel().setData({meal:meal});
 
         this.mealDialogWindow.show();

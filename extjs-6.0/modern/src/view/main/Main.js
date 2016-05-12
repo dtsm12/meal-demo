@@ -8,13 +8,10 @@ Ext.define('Meals.view.main.Main', {
     xtype: 'app-main',
 
     requires: [
-        'Ext.MessageBox',
         'Ext.Toast',
-
         'Meals.view.main.MainController',
         'Meals.view.main.MainModel',
-        'Meals.view.meal.List',
-        'Meals.view.meal.ListController'
+        'Meals.view.meal.Cards'
     ],
 
     controller: 'main',
@@ -35,7 +32,7 @@ Ext.define('Meals.view.main.Main', {
             iconCls: 'x-fa fa-home',
             layout: 'fit',
             items: [{
-                xtype: 'meallist'
+                xtype: 'meal-cards'
             }]
         }]
 });

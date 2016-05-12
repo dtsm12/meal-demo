@@ -4,8 +4,8 @@
 Ext.define('Meals.view.meal.List', {
     extend: 'Ext.grid.Grid',
     requires: ['Meals.view.meal.ListController'],
-    xtype: 'meallist',
-    controller: 'meallist',
+    xtype: 'meal-list',
+    controller: 'meal-list',
 
     requires: [
         'Meals.store.Meals'
@@ -42,5 +42,9 @@ Ext.define('Meals.view.meal.List', {
     columns: [
         { text: 'ID',  dataIndex: 'id', width: 50 },
         { text: 'Name',  dataIndex: 'name', flex: 1 }
-    ]
+    ],
+
+    listeners: {
+        itemdoubletap: 'editMealDblTap'
+    }
 });

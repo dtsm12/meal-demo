@@ -13,6 +13,10 @@ Ext.define('Meals.view.meal.ListControllerShared', {
         // to be overriden by view specific controller
     },
 
+    mealsUpdateCancelled: function() {
+        // to be overriden by view specific controller
+    },
+
     init: function(view) {
       this.refreshMeals();
     },
@@ -21,28 +25,8 @@ Ext.define('Meals.view.meal.ListControllerShared', {
       this.getView().getStore().loadPage(0);
     },
 
-    editMeal: function(grid, rowIndex, colIndex) {
-        var meal = grid.getStore().getAt(rowIndex);
-        this.openMealEditor(meal);
-    },
-
-    deleteMeal: function(grid, rowIndex, colIndex) {
-        var meal = grid.getStore().getAt(rowIndex);
-        var ctrlr = this;
-        meal.erase({
-           success: function(meal, operation) {
-              ctrlr.mealsUpdated();
-              Meals.toast('Meal deleted successfully');
-           },
-           failure: function(meal, operation) {
-              ctrlr.mealsUpdated();
-              Meals.toast('Meal delete failed');
-           }
-        });
-    },
-
-     addMeal: function () {
-        var meal = new Meals.model.Meal();
-        this.openMealEditor(meal);
-     }
+    addMeal: function () {
+       var meal = new Meals.model.Meal();
+       this.openMealEditor(meal);
+    }
 });
